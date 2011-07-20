@@ -14,7 +14,7 @@ Patch0:		%{name}-ibus-1.4.patch
 Patch1:		%{name}-xx-icon-symbol.patch
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	gettext-devel
-BuildRequires:  ibus
+BuildRequires:	ibus
 BuildRequires:	ibus-devel >= 1.3.0
 BuildRequires:	intltool
 BuildRequires:	libhangul-devel >= 0.0.10
@@ -49,6 +49,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
