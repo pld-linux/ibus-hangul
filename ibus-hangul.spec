@@ -5,7 +5,7 @@
 Summary:	The Hangul engine for IBus input platform
 Name:		ibus-hangul
 Version:	1.3.1
-Release:	0.2
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
