@@ -22,6 +22,7 @@ BuildRequires:	libtool
 BuildRequires:	pkgconfig
 Requires:	ibus >= 1.3.0
 Requires:	libhangul >= 0.0.10
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/ibus
 
