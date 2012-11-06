@@ -1,0 +1,12 @@
+Index: ibus-hangul-1.4.0/src/hangul.xml.in.in
+===================================================================
+--- ibus-hangul-1.4.0.orig/src/hangul.xml.in.in
++++ ibus-hangul-1.4.0/src/hangul.xml.in.in
+@@ -22,6 +22,7 @@
+ 			<description>Korean Input Method</description>
+ 			<rank>99</rank>
+ 			<symbol>&#xD55C;</symbol>
++			<hotkeys>Control+space,Hangul</hotkeys>
+ 		</engine>
+ 	</engines>
+ 

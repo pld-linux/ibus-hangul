@@ -1,0 +1,23 @@
+From f1b2a97b428d8432604ec782505516b9ea1fe565 Mon Sep 17 00:00:00 2001
+From: Choe Hwanjin <choe.hwanjin@gmail.com>
+Date: Mon, 22 Oct 2012 01:39:51 +0900
+Subject: [PATCH] Rename this engine to "Hangul"
+
+"Hangul" means this engine is using libhangul.
+---
+ src/hangul.xml.in.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: ibus-hangul-1.4.1/src/hangul.xml.in.in
+===================================================================
+--- ibus-hangul-1.4.1.orig/src/hangul.xml.in.in
++++ ibus-hangul-1.4.1/src/hangul.xml.in.in
+@@ -18,7 +18,7 @@
+ 			<author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+ 			<icon>ibus-hangul</icon>
+ 			<layout>us</layout>
+-			<longname>Korean</longname>
++			<longname>Hangul</longname>
+ 			<description>Korean Input Method</description>
+ 			<rank>99</rank>
+ 			<symbol>&#xD55C;</symbol>

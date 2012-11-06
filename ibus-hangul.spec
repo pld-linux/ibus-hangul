@@ -12,7 +12,9 @@ Group:		Libraries
 #Source0Download: http://code.google.com/p/ibus/downloads/list
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
 # Source0-md5:	c9615a9f704a4c29252028407329e1c3
-Patch0:		%{name}-xx-icon-symbol.patch
+Patch0:		ibus-hangul-setup-gi.patch
+Patch1:		ibus-hangul-add-hangul-hotkey.patch
+Patch2:		ibus-hangul-engine-name.patch
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.10
@@ -25,6 +27,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	python >= 1:2.5
 Requires:	ibus >= 1.4.0
 Requires:	libhangul >= 0.1.0
+Requires:	python-pygobject3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_libexecdir	%{_libdir}/ibus
@@ -40,6 +43,8 @@ metodę wprowadzania znaków koreańskich zaimplementowaną w libhangul.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -62,6 +67,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post
+%update_icon_cache hicolor
+
+%postun
+%update_icon_cache hicolor
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
