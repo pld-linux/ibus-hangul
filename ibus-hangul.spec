@@ -1,12 +1,12 @@
 #
 # Conditional build:
-%bcond_with	bridge_hotkey		# enable the engine hotkeys
+%bcond_without	bridge_hotkey		# disable the engine hotkeys
 #
 Summary:	The Hangul engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Hangul dla platformy wprowadzania znaków IBus
 Name:		ibus-hangul
 Version:	1.4.1
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: http://code.google.com/p/ibus/downloads/list
@@ -43,7 +43,9 @@ metodę wprowadzania znaków koreańskich zaimplementowaną w libhangul.
 %prep
 %setup -q
 %patch0 -p1
+%if %{with bridge_hotkey}
 %patch1 -p1
+%endif
 %patch2 -p1
 
 %build
