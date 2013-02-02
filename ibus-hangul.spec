@@ -5,16 +5,14 @@
 Summary:	The Hangul engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Hangul dla platformy wprowadzania znaków IBus
 Name:		ibus-hangul
-Version:	1.4.1
-Release:	3
+Version:	1.4.2
+Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: http://code.google.com/p/ibus/downloads/list
 Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	c9615a9f704a4c29252028407329e1c3
-Patch0:		ibus-hangul-setup-gi.patch
-Patch1:		ibus-hangul-add-hangul-hotkey.patch
-Patch2:		ibus-hangul-engine-name.patch
+# Source0-md5:	0229eab9481355bb5f54230890bfa910
+Patch0:		%{name}-add-hangul-hotkey.patch
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.10
@@ -42,11 +40,9 @@ metodę wprowadzania znaków koreańskich zaimplementowaną w libhangul.
 
 %prep
 %setup -q
-%patch0 -p1
 %if %{with bridge_hotkey}
-%patch1 -p1
+%patch0 -p1
 %endif
-%patch2 -p1
 
 %build
 %{__libtoolize}
