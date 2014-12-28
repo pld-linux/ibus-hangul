@@ -16,7 +16,7 @@ Patch0:		%{name}-add-hangul-hotkey.patch
 URL:		http://code.google.com/p/ibus/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.10
-BuildRequires:	gettext-devel >= 0.17
+BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	ibus-devel >= 1.4.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libhangul-devel >= 0.1.0
