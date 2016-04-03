@@ -5,15 +5,15 @@
 Summary:	The Hangul engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Hangul dla platformy wprowadzania znaków IBus
 Name:		ibus-hangul
-Version:	1.4.2
+Version:	1.5.0
 Release:	1
 License:	GPL v2+
 Group:		Libraries
-#Source0Download: http://code.google.com/p/ibus/downloads/list
-Source0:	http://ibus.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	0229eab9481355bb5f54230890bfa910
+#Source0Download: https://github.com/choehwanjin/ibus-hangul/releases
+Source0:	https://github.com/choehwanjin/ibus-hangul/releases/download/%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	a171bf7b25752a1f71257fb85d56346b
 Patch0:		%{name}-add-hangul-hotkey.patch
-URL:		http://code.google.com/p/ibus/
+URL:		https://github.com/choehwanjin/ibus-hangul
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.10
 BuildRequires:	gettext-tools >= 0.17
@@ -78,9 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ibus-setup-hangul
 %attr(755,root,root) %{_libexecdir}/ibus-engine-hangul
 %attr(755,root,root) %{_libexecdir}/ibus-setup-hangul
-%dir %{_libdir}/ibus-hangul
-%dir %{_libdir}/ibus-hangul/setup
-%attr(755,root,root) %{_libdir}/ibus-hangul/setup/hangul_keyboard_list
 %{_datadir}/ibus-hangul
 %{_datadir}/ibus/component/hangul.xml
 %{_desktopdir}/ibus-setup-hangul.desktop
