@@ -1,11 +1,9 @@
-Index: ibus-hangul-1.4.0/src/hangul.xml.in.in
-===================================================================
---- ibus-hangul-1.4.0.orig/src/hangul.xml.in.in
-+++ ibus-hangul-1.4.0/src/hangul.xml.in.in
-@@ -22,6 +22,7 @@
- 			<description>Korean Input Method</description>
+--- ibus-hangul-1.5.5/src/hangul.xml.in.in.orig	2024-11-11 19:12:12.682912425 +0100
++++ ibus-hangul-1.5.5/src/hangul.xml.in.in	2024-11-11 19:13:05.202627901 +0100
+@@ -24,6 +24,7 @@
  			<rank>99</rank>
  			<symbol>&#xD55C;</symbol>
+ 			<setup>${libexecdir}/ibus-setup-hangul</setup>
 +			<hotkeys>Control+space,Hangul</hotkeys>
  		</engine>
  	</engines>

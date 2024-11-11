@@ -5,25 +5,29 @@
 Summary:	The Hangul engine for IBus input platform
 Summary(pl.UTF-8):	Silnik Hangul dla platformy wprowadzania znaków IBus
 Name:		ibus-hangul
-Version:	1.5.0
+Version:	1.5.5
 Release:	1
 License:	GPL v2+
 Group:		Libraries
 #Source0Download: https://github.com/choehwanjin/ibus-hangul/releases
-Source0:	https://github.com/choehwanjin/ibus-hangul/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	a171bf7b25752a1f71257fb85d56346b
+Source0:	https://github.com/choehwanjin/ibus-hangul/releases/download/%{version}/%{name}-%{version}.tar.xz
+# Source0-md5:	47a0044668440f82cc53a2e186e2a84d
 Patch0:		%{name}-add-hangul-hotkey.patch
 URL:		https://github.com/choehwanjin/ibus-hangul
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake >= 1:1.10
-BuildRequires:	gettext-tools >= 0.17
-BuildRequires:	ibus-devel >= 1.4.0
-BuildRequires:	intltool >= 0.35.0
+BuildRequires:	gettext-tools >= 0.19.8
+BuildRequires:	gtk+3-devel >= 3.0.0
+BuildRequires:	ibus-devel >= 1.5.4
 BuildRequires:	libhangul-devel >= 0.1.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
 BuildRequires:	python >= 1:2.5
-Requires:	ibus >= 1.4.0
+BuildRequires:	rpmbuild(macros) >= 1.592
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
+Requires(post,postun):	glib2 >= 1:2.26
+Requires:	ibus >= 1.5.4
 Requires:	libhangul >= 0.1.0
 Requires:	python-pygobject3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,9 +71,11 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%glib_compile_schemas
 %update_icon_cache hicolor
 
 %postun
+%glib_compile_schemas
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
@@ -78,8 +84,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ibus-setup-hangul
 %attr(755,root,root) %{_libexecdir}/ibus-engine-hangul
 %attr(755,root,root) %{_libexecdir}/ibus-setup-hangul
+%{_datadir}/glib-2.0/schemas/org.freedesktop.ibus.engine.hangul.gschema.xml
 %{_datadir}/ibus-hangul
 %{_datadir}/ibus/component/hangul.xml
+%{_datadir}/metainfo/org.freedesktop.ibus.engine.hangul.metainfo.xml
 %{_desktopdir}/ibus-setup-hangul.desktop
 %{_iconsdir}/hicolor/64x64/apps/ibus-hangul.png
 %{_iconsdir}/hicolor/64x64/apps/ibus-setup-hangul.png
